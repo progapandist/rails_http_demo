@@ -1,0 +1,45 @@
+<h1>GET request as seen by Rails</h1>
+
+<h3>Full url</h3>
+<p>
+<%= @request.original_url %>
+</p>
+
+<h3>IP</h3>
+<p>
+<%= @request.ip %>
+</p>
+
+<h3>Method</h3>
+<p>
+<%= @request.method %>
+</p>
+
+<h3>Path</h3>
+<p>
+<%= @request.path %>
+</p>
+
+<h3>Query</h3>
+<p>
+<%= @request.query_parameters %>
+</p>
+
+<%# https://stackoverflow.com/a/51884276 %>
+<h3>Headers</h3>
+<ul>
+  <% @headers.each do |header| %>
+    <li><%= header[0] %>: <%= header[1] %></li>
+  <% end %>
+</ul>
+
+<h3>Body</h3>
+<%= @request.body.inspect %>
+<%= @request.body.read %>
+
+<h3>Cookies</h3>
+<ul>
+<% @request.cookie_jar.each do |cookie| %>
+  <li><%= cookie %></li>
+<% end %>
+</ul>
